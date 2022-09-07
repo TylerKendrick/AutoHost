@@ -1,7 +1,7 @@
-namespace AutoHost.Tests;
-
-[AutoHost.AutoHostAttribute]
-public class TestFake
+namespace AutoHost.Tests
 {
-    public void Method() { }
+    public class TestFake
+    {
+        public void Method() { }
+    }
 }

@@ -1,17 +1,19 @@
 using NUnit.Framework;
 
-namespace AutoHost.Tests;
-
-public class Tests
+namespace AutoHost.Tests
 {
-    [SetUp]
-    public void Setup()
+    public class Tests
     {
-    }
+        [SetUp]
+        public void Setup()
+        {
+        }
 
-    [Test]
-    public void Test1()
-    {
-        Assert.Pass();
+        [Test]
+        public void Test1()
+        {
+            AutoHost.Hosting.FunctionHost.Result();
+            Assert.Pass();
+        }
     }
 }
