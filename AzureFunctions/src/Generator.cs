@@ -7,12 +7,11 @@ namespace AutoHost
     {
         internal const string FunctionHost =
         @"
-        using Microsoft.Azure.WebJopbs;
         namespace AutoHost.Hosting
         {
             public class FunctionHost
             {
-                [FunctionName(nameof(Result))]
+                [Microsoft.Azure.Functions.Worker.Function(nameof(Result))]
                 public static void Result()
                 {
                 }
@@ -20,7 +19,9 @@ namespace AutoHost
         }
         ";
 
-        void ISourceGenerator.Initialize(GeneratorInitializationContext context) { }
+        void ISourceGenerator.Initialize(GeneratorInitializationContext context)
+        {
+        }
         void ISourceGenerator.Execute(GeneratorExecutionContext context)
         {
             context.AddSource("FunctionHost.cs", FunctionHost);
