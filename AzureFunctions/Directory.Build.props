@@ -1,0 +1,8 @@
+<Project>
+    <Import Project="../Directory.Build.props" />
+    <PropertyGroup>
+        <LocalPath>$(MSBuildThisFileDirectory)</LocalPath>
+        <SourcePath>$(LocalPath)/src</SourcePath>
+        <TestPath>$(LocalPath)/tests</TestPath>
+    </PropertyGroup>
+</Project>

@@ -1,21 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(MSBuildPath)\Generator.props" />
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
-  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions" Version="1.*" GeneratePathProperty="true" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.*" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.*">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <ProjectReference Include="../../Core/src/core.csproj" />
+    <ProjectReference Include="$(RootPath)/Core/src/core.csproj" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions" Version="1.*"
+      GeneratePathProperty="true" PrivateAssets="all" />
   </ItemGroup>
   
   <Target Name="GetDependencyTargetPaths">
     <ItemGroup>
-      <TargetPathWithTargetPlatformMoniker Include="$(PkgMicrosoft_Azure_Functions_Worker_Extensions_Abstractions)\lib\netstandard2.0\Microsoft.Azure.Functions.Worker.Extensions.Abstractions.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="$(PkgMicrosoft_Azure_Functions_Worker_Extensions_Abstractions)\lib\netstandard2.0\*.dll"
+        IncludeRuntimeDependency="false" />
     </ItemGroup>
   </Target>
 </Project>
